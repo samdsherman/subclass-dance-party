@@ -30,9 +30,10 @@
 
 //   return dancer;
 // };
-
+var images = ['images/pig.png', 'images/grasshopper.png', 'images/cowboy.png'];
 var Dancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
+  var index = Math.floor(Math.random() * images.length);
+  this.$node = $('<span class="dancer"><img src=' + images[index] + ' height="100" width="100"></span>');
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition(top, left);
@@ -48,6 +49,11 @@ Dancer.prototype.setPosition = function(top, left) {
     left: left
   };
   this.$node.css(styleSettings);
+};
+
+Dancer.prototype.lineUp = function(dancersInLine) {
+  var left = $('body').width() / dancers.length * dancersInLine;
+  this.setPosition('50%', left);
 };
 
 var pixelToNumber = function(string) {
