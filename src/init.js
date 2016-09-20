@@ -27,6 +27,9 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    dancer.$node.on('click', function() {
+      dancer.$node.toggleClass('flip');
+    });
     dancers.push(dancer);
     $('body').append(dancer.$node);
   });

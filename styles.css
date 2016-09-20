@@ -3,7 +3,9 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  /*background-color:#444;*/
+  background-image: url("images/SanFran.jpg");
+  background-size: 100% 100%;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -24,4 +26,8 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+.flip{
+  transform: scaleY(-1);
+
 }

@@ -53,7 +53,7 @@ Dancer.prototype.setPosition = function(top, left) {
 
 Dancer.prototype.lineUp = function(dancersInLine) {
   var left = $('body').width() / dancers.length * dancersInLine;
-  this.setPosition('50%', left);
+  this.setPosition(Math.floor($('body').height() / 2), left);
 };
 
 var pixelToNumber = function(string) {
