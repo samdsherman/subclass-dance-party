@@ -4,9 +4,26 @@ body, html{
 body{
   margin: 0px;
   /*background-color:#444;*/
-  background-image: url("images/SanFran.jpg");
-  background-size: 100% 100%;
+  /*background-image: url("images/SanFran.jpg");
+  background-size: 100% 100%;*/
   font-size: 18px;
+}
+.background-wrap{
+  poisiton: fixed;
+  z-index: -1000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+#video-bg-elem{
+  position: absolute;
+  top: 32px;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -27,6 +44,7 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
 .flip{
   transform: scaleY(-1);
 

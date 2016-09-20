@@ -11,8 +11,8 @@ MovingDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
   var top = pixelToNumber(this.$node.css('top'));
   var left = pixelToNumber(this.$node.css('left'));
-  var borderWidth = pixelToNumber(this.$node.css('border-width'));
-  var width = this.$node.width();
+  var borderWidth = pixelToNumber(this.$node.css('border-width')) || 10;
+  var width = this.$node.width() || 100;
   dancers.forEach((dancer) => {
     var dancerY = pixelToNumber(dancer.$node.css('top'));
     var dancerX = pixelToNumber(dancer.$node.css('left'));
@@ -29,15 +29,12 @@ MovingDancer.prototype.step = function() {
         this.yDirection *= -1;
       }
     }
-    //   if (Math.abs(left - dancerX) < width + 2 * borderWidth + 10) {
-    //     this.yDirection *= -1;
-    //   }
-    // }
-    // if (Math.abs(left - dancerX) < width + 2 * borderWidth + 10) {
-    //   if (Math.abs(top - dancerY) < width + 2 * borderWidth + 10) {
-    //     this.xDirection *= -1;
-    //   }
-    // }
   });
   this.setPosition(top + this.yDirection, left + this.xDirection);
+};
+
+MovingDancer.prototype.lineUp = function(dancersInLine) {
+  this.xDirection = 0;
+  this.yDirection = 0;
+  Dancer.prototype.lineUp.call(this, dancersInLine);
 };

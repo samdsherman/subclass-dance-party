@@ -12,6 +12,11 @@ describe('blinkyDancer', function() {
     expect(blinkyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
+  it('should check to see if nodes line up when lineUp is called', function() {
+    blinkyDancer.lineUp(0);
+    expect(pixelToNumber(blinkyDancer.$node.css('top'))).to.equal(Math.floor($('body').height() / 2));
+  });
+
   it('should have a step function that makes its node blink', function() {
     sinon.spy(blinkyDancer.$node, 'toggle');
     blinkyDancer.step();

@@ -19,6 +19,14 @@ describe('movingDancer', function() {
     expect(movingDancer.$node.css('top') !== top || movingDancer.$node.css('left') !== left).to.be.true;
   });
 
+  it('should reverse direction when approaching another dancer', function() {
+    dancers.push(movingDancer);
+    dancers.push(new BlinkyDancer(130, 20, timeBetweenSteps));
+    expect(movingDancer.yDirection).to.equal(10);
+    movingDancer.step();
+    expect(movingDancer.yDirection).to.equal(-10);
+  });
+
   describe('dance', function() {
     it('should call step at least once per second', function() {
       sinon.spy(movingDancer, 'step');
